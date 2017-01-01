@@ -1,0 +1,19 @@
+#!/bin/bash
+# program description
+# input: 1 parameter : path to folder
+# output: filter ls display file have permission rwx
+
+if [ $# -ne 1 ]
+then 
+	echo "Expected one parameter"
+	exit 1
+fi
+
+for name in "$1"/*
+do 
+	if [ -f $name ];then
+	if [ -r $name -a -w $name -a -x $name ];then
+		echo "$name"
+	fi
+	fi
+done
