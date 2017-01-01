@@ -1,0 +1,27 @@
+#!/bin/bash
+# check rental and print information
+# input name of rental
+# output: information if have
+
+if [ $# -ne 1 ] 
+then 
+	echo "Expected one paramenter"
+	exit 1
+fi
+
+# parameter null and exist
+if [ -z $1 ];then
+	echo "unknown vihcle"
+	exit 1
+#parameter not null and exist
+elif [ -n $1 ];then
+	rental=$1
+fi
+
+#check rental
+case $rental in 
+	"car") echo "For $rental Rs.20 per km";;
+	"Jeep") echo "For $rental Rs.15 per km";;
+	"bicyle") echo "For $rental Rs.5 per km";;
+	*) echo "We don't support tha vihcle";;
+esac
