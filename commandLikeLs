@@ -1,0 +1,17 @@
+#!/bin/bash
+for name in "$PWD"/*
+do 
+	if test -d $name	
+	then
+		echo $name
+	fi
+done
+
+# list all files
+for name in "$PWD"/*
+do 
+	if test -f $name
+	then
+		echo $name
+	fi
+done
