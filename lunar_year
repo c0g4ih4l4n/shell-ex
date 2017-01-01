@@ -1,0 +1,61 @@
+#!/bin/bash
+# display lunar year correspond with yeah
+# input: one paramter or no parameter
+# output: year in lunar
+
+if [ $# -eq 1 ];then
+	year=$1
+else
+	read year
+fi
+
+# Khoang nam
+if [ $year -gt 4999 -a $year -lt 0 ];then
+	echo "$year is not available"
+	exit 1
+fi
+
+#tinh can chi
+
+soduchia10=`expr $year % 10`;
+soduchia12=`expr $year % 12`;
+
+case $soduchia10 in 
+	0) can="Canh";;
+	1) can="Tan";;
+	2) can="Nham";;
+	3) can="Quy";;
+	4) can="Giap";;
+	5) can="At";;
+	6) can="Binh";;
+	7) can="Dinh";;
+	8) can="Mau";;
+	9) can="Ky";;
+	*) can="null";;
+esac
+
+case $soduchia12 in
+	0) chi="Than";;
+	1) chi="Dau";;
+	2) chi="Tuat";;
+	3) chi="Hoi";;
+	4) chi="Ti";;
+	5) chi="Suu";;
+	6) chi="Dan";;
+	7) chi="Mao";;
+	8) chi="Thin";;
+	9) chi="Ty";;
+	10) chi="Ngo";;
+	11) chi="Mui";;
+	*) chi="null";;
+esac 
+
+if [ $can = "null" ];then
+	echo "Cannot find the lunar year"
+	exit 1
+elif [ $chi = "null" ];then
+	echo "Cannot find the lunar year"
+	exit 1
+else 
+	echo "$can $chi"
+fi
